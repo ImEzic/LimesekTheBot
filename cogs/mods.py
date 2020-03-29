@@ -28,7 +28,7 @@ class Mods(commands.Cog):
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member=None, *,Reason=None):
 
-            if(member == None or member == context.author):
+            if(member == None or member == ctx.author):
                 await ctx.send('What\'s his name boss')
             
             elif(member.top_role > ctx.message.author.top_role):
