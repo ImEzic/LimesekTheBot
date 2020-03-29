@@ -27,7 +27,6 @@ class Mods(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member=None, *,Reason=None):
-            guild = discord.Guild.me 
 
             if(member == None or member == discord.Message.author):
                 await ctx.send('What\'s his name boss')
@@ -35,7 +34,7 @@ class Mods(commands.Cog):
             elif(member.top_role > ctx.message.author.top_role):
                 await ctx.send('Are you really trying to kick someone higher or equal to you??')
             
-            elif(member.top_role > guild.top_role):
+            elif(member.top_role > discord.Guild.me):
                 await ctx.send('I need to have a higher role than him')
 
             else:
