@@ -27,23 +27,21 @@ class Mods(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(kick_members=True)
     async def kick(self, ctx, member: discord.Member=None, *,Reason=None):
-       
-        #check if user wants to ban himself or no user specified
-       
-        try:        
+              
             if(member == None or member == discord.Message.author):
-                await ctx.send('You can\'t kick yourself')
-            else:
+                await ctx.send('What\'s his name boss')
+            
+            elif(member.top_role > ctx.message.author.top_role):
+                await ctx.send('Are you really trying to kick someone higher or equal to you??')
+            
+            elif(member.top_role > self.client.top_role):
+                await ctx.send('I need to have a higher role than him')
 
-                await ctx.message.delete()
+            else:
                 await member.send(f'You got kicked from {ctx.guild.name} Reason: {Reason}')
                 await member.kick(reason=Reason)
                 await ctx.send(f'{member.mention} got kicked from the server for: {Reason}')
-        #user cannot kick someone with same permmision
-        except discord.Forbidden:
-            await ctx.message.delete()
-            await ctx.send(f"You can't kick someone equal to you {ctx.author.mention}")
-
+  
 
     #*Ban user
     @commands.command()
