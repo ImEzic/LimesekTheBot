@@ -31,7 +31,7 @@ class Mods(commands.Cog):
             if(member == None or member == ctx.author):
                 await ctx.send('What\'s his name boss')
             
-            elif(member.top_role > ctx.message.author.top_role):
+            elif(member.top_role >= ctx.message.author.top_role):
                 await ctx.send('Are you really trying to kick someone higher or equal to you??')
             
             elif(member.top_role > member.guild.me.top_role):
