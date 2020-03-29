@@ -38,5 +38,4 @@ async def on_guild_join(guild):
                             " If you need help, or find a bug: Join our support server at https://discord.gg/PYU6uhB")
         
 
-token = os.environ.get("BOT_TOKEN")
-client.run(token)
+client.run(os.environ.get("BOT_TOKEN"))
