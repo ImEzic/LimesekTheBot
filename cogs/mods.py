@@ -34,7 +34,7 @@ class Mods(commands.Cog):
             elif(member.top_role > ctx.message.author.top_role):
                 await ctx.send('Are you really trying to kick someone higher or equal to you??')
             
-            elif(member.top_role > member.guild.me):
+            elif(member.top_role > member.guild.me.top_role):
                 await ctx.send('I need to have a higher role than him')
 
             else:
