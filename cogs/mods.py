@@ -85,7 +85,7 @@ class Mods(commands.Cog):
                     await ctx.send(f'**{user}** got unnbaned.')
                     return
         except:
-            await ctx.send('I don\'t think that\'s the correct way try `unban username#discriminator`)
+            await ctx.send('I don\'t think that\'s the correct way try `unban username#discriminator`')
 
 def setup(client):
     client.add_cog(Mods(client))
