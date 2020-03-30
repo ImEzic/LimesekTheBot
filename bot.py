@@ -26,7 +26,7 @@ async def on_ready():
             if filename.endswith('.py'):
                 client.load_extension(f'cogs.{filename[:-3]}')
     except Exception:
-            print(f'Couldn\'t load cog {cog}')
+            print(f'Couldn\'t load cog {filename}')
     
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
 
