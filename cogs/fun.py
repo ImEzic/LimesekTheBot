@@ -16,7 +16,7 @@ class Fun(commands.Cog):
         await ctx.send(random.choice(coin))
 
 
-    #*Bot says whatever
+    #*Bot says what user will give him
     @commands.command()
     async def say(self, ctx, *,text):
         await ctx.send(f"{text} \n\u200b{(len(text) + 5)*' '}-{ctx.message.author}")
@@ -37,6 +37,18 @@ class Fun(commands.Cog):
 
         if '@!688397092707631125' in message.content.lower():
             await message.channel.send('Type `elon help` or `bro help` to see the list of commands brother')
+        
+        if message.content.lower().replace('?', '') in ['how are you', 'what\'s up']:
+            wittyResponse = ['My lawyer says I don’t have to answer that question.'
+                             'I could really go for a massage.'
+                             'I\'d say I\'m a [insert number here] out of 10.'
+                             'If I were any better, I\'d be illegal.'
+                             'I dunno. Is it Friday yet?'
+                             'I\'m just how I like my steak Medium well.'
+                            ]
+            await message.channel.send('Ohh I\'m just vibing brother. Wbu?')
+        
+
 
 
     #*Let me google that for you
