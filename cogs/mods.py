@@ -80,7 +80,7 @@ class Mods(commands.Cog):
                 if(user.name, user.discriminator) != (member_name, member_discriminator): 
                     await ctx.send('*Thumbs through pages of banned users* Sorry but I can\'t find him.')
 
-                elif(user.name, user.discriminator) == ):
+                elif(user.name, user.discriminator) == (member_name, member_discriminator):
                     await ctx.guild.unban(user)
                     await ctx.send(f'**{user}** got unnbaned.')
                     return
