@@ -46,7 +46,7 @@ class Fun(commands.Cog):
                              'I dunno. Is it Friday yet?'
                              'I\'m just how I like my steak Medium well.'
                             ]
-            await message.channel.send('Ohh I\'m just vibing brother. Wbu?')
+            await message.channel.send(random.choice(wittyResponse))
         
 
 
