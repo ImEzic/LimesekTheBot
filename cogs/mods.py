@@ -70,22 +70,22 @@ class Mods(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(ban_members=True)
     async def unban(self, ctx, *, member):
-            print(ctx.guild.bans)
+        try:        
+            banned_users = await ctx.guild.bans()
+            member_name, member_discriminator = member.split('#')
 
+            for ban_entry in banned_users:
+                user = ban_entry.user
+                
+                if(member_name, member_discriminator) != (user.name, user.discriminator): 
+                    await ctx.send('*Thumbs through pages of banned users* Sorry but I can\'t find him.)
 
-
-        
-            # banned_users = await ctx.guild.bans()
-            # member_name, member_discriminator = member.split('#')
-
-            # for ban_entry in banned_users:
-            #     user = ban_entry.user
-
-            #     if(user.name, user.discriminator) == (member_name, member_discriminator):
-            #         await ctx.guild.unban(user)
-            #         await ctx.send(f'**{user}** got unnbaned.')
-            #         return
-        
+                elif(user.name, user.discriminator) == (member_name, member_discriminator):
+                    await ctx.guild.unban(user)
+                    await ctx.send(f'**{user}** got unnbaned.')
+                    return
+        except:
+            await ctx.send('I don\'t think that\'s the correct way try `unban username#discriminator`)
 
 def setup(client):
     client.add_cog(Mods(client))
