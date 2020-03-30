@@ -78,7 +78,7 @@ class Mods(commands.Cog):
                 user = ban_entry.user
                 
                 if(member_name, member_discriminator) != (user.name, user.discriminator): 
-                    await ctx.send('*Thumbs through pages of banned users* Sorry but I can\'t find him.)
+                    await ctx.send('*Thumbs through pages of banned users* Sorry but I can\'t find him.')
 
                 elif(user.name, user.discriminator) == (member_name, member_discriminator):
                     await ctx.guild.unban(user)
