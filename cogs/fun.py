@@ -39,13 +39,12 @@ class Fun(commands.Cog):
             await message.channel.send('Type `elon help` or `bro help` to see the list of commands brother')
         
         if message.content.lower().replace('?', '') in ['how are you', 'what\'s up']:
-            wittyResponse = ['My lawyer says I don’t have to answer that question.'
-                             'I could really go for a massage.'
-                             'I\'d say I\'m a [insert number here] out of 10.'
-                             'If I were any better, I\'d be illegal.'
-                             'I dunno. Is it Friday yet?'
-                             'I\'m just how I like my steak Medium well.'
-                            ]
+            wittyResponse = ['My lawyer says I don’t have to answer that question.',
+                             'I could really go for a massage.',
+                             'I\'d say I\'m a [insert number here] out of 10.',
+                             'If I were any better, I\'d be illegal.',
+                             'I dunno. Is it Friday yet?',
+                             'I\'m just how I like my steak Medium well.']
             await message.channel.send(random.choice(wittyResponse))
         
 
