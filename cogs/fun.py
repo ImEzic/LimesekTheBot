@@ -50,7 +50,7 @@ class Fun(commands.Cog):
 
     #*8ball
     @commands.command(name="8ball")
-    async def _8ball(self, ctx, *,message):
+    async def _8ball(self, ctx, message):
         magicResponse = ['It is certain.',
                 'It is decidedly so.',
                 'Without a doubt.',
@@ -71,7 +71,7 @@ class Fun(commands.Cog):
                 'My sources say no.',
                 'Outlook not so good.',
                 'Very doubtful.']
-        await message.channel.send(random.choice(magicResponse))
+        await ctx.send(random.choice(magicResponse))
 
     #*Let me google that for you
     @commands.command()
