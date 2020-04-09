@@ -71,7 +71,7 @@ class Fun(commands.Cog):
                         'My sources say no.',
                         'Outlook not so good.',
                         'Very doubtful.']
-        await ctx.send(random.choice(magicResponse))
+        await message.channel.send(random.choice(magicResponse))
 
     #*Let me google that for you
     @commands.command()
