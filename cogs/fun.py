@@ -49,8 +49,8 @@ class Fun(commands.Cog):
         
 
     #*8ball
-    @commands.command()
-    async def 8ball(self, ctx, *,message):
+    @commands.command(name="8ball")
+    async def _8ball(self, ctx, *,message):
         magicResponse = ['It is certain.',
                 'It is decidedly so.',
                 'Without a doubt.',
