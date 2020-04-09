@@ -72,7 +72,7 @@ class Info(commands.Cog):
         embed = discord.Embed(title ='**Elon Musk** is happy to help You *wink*', colour = discord.Color(0xffc200))
         
         embed.add_field(name='Info', value='`who`, `ping`, `investigate`, `help`', inline=False)
-        embed.add_field(name='Fun', value='`coinflip`, `say`, `google`, `useless`, `size`, `roast`', inline=False)
+        embed.add_field(name='Fun', value='`coinflip`, `say`, `google`, `useless`, `size`, `roast`, `8ball`', inline=False)
         embed.add_field(name='Moderation', value='`clear`, `kick`, `unban`, `ban`', inline=False)
 
         await ctx.send(embed=embed)
