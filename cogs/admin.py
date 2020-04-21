@@ -12,6 +12,7 @@ class Admin(commands.Cog):
     @commands.is_owner()
     async def reload(self, ctx, extension):
         await ctx.message.delete()
+	await ctx.send("not true")
         self.client.unload_extension(f'cogs.{extension}')
         self.client.load_extension(f'cogs.{extension}')
 
