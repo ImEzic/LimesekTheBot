@@ -28,6 +28,7 @@ class Info(commands.Cog):
         for guild in self.client.guilds:
             msg += '{!s:19s} | {!s:11s}| {!s:25s} | {}\n'.format(guild.id, guild.member_count, guild.name, guild.owner)
         msg += '```'
+        await ctx.send(f'Elon is in **{len(self.client.guilds)}**')
         await ctx.send(msg)
 
 
