@@ -2,7 +2,7 @@ import discord
 import os
 from discord.ext import commands
 
-__version__ = '0.10.0'
+__version__ = '0.63.0'
 
 
 client = commands.Bot(command_prefix = commands.when_mentioned_or('elon ', 'bro '))
