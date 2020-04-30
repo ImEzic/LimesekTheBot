@@ -14,8 +14,8 @@ class Errors(commands.Cog):
         if isinstance(error, commands.MissingRole):
             await ctx.send(f"{ctx.author.mention} You don\'t have permmision to do that silllly")
         
-        elif isinstance(error, commands.CommandNotFound):
-            pass
+        #elif isinstance(error, commands.CommandNotFound):
+        #    pass
         
         elif isinstance(error, commands.MissingRequiredArgument):
             pass
@@ -25,6 +25,7 @@ class Errors(commands.Cog):
         elif isinstance(error, commands.NotOwner):
             await ctx.message.delete()
         else:
+            print(ctx.guild.name)
             raise error
 
 def setup(client):
