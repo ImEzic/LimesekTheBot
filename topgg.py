@@ -15,6 +15,7 @@ class TopGG(commands.Cog):
     async def on_guild_post(self):
         print("Server count posted successfully")
 
+
 def setup(client):
     client.add_cog(TopGG(client))
     
