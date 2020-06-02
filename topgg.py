@@ -8,7 +8,7 @@ class TopGG(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        self.token = os.getenv("TOPGG_TOKEN")
+        self.token = os.environ.get("TOPGG_TOKEN")
         self.dblpy = dbl.DBLClient(self.client, self.token, autopost=True)
 
     @commands.Cog.listener()
