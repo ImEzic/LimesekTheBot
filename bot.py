@@ -44,7 +44,7 @@ async def on_ready():
     if 199 < req.status_code < 300:
         print("Successfully posted '" + str(payload) + "' to TopGG.")
     else:
-        print("Failed to post guild count to TopGG, response code {}".format(req.status_code)
+        print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
     
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
