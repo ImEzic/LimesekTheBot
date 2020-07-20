@@ -49,8 +49,6 @@ async def on_ready():
         else:
             print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
         hell_is_frozen=False
-        time.sleep(60)
-        hell_is_frozen=True
 
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
