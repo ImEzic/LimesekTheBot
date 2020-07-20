@@ -7,7 +7,6 @@ class Fun(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        print("fuuuuuns")
 
     #*coin flip
     @commands.command()

@@ -11,11 +11,6 @@ class TopGG(commands.Cog):
         print("topgggggggg")
     
     
-
-    # The headers, this doesn't need to be set every time you push the data, only once. 
-    #
-    # Do be sure to change BOT_NAME in 'user-agent' and put your token in 'DBL_TOKEN_HERE', if this is an
-    # open source project I would reccommend putting this in a seperate json file, and getting it from there.
         headers = {  
         "content-type": "application/json",
         "authorization": os.environ.get("TOPGG_TOKEN"),
