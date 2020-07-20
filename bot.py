@@ -47,7 +47,7 @@ async def on_ready():
             print("Successfully posted '" + str(payload) + "' to TopGG.")
         else:
             print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
-        time.sleep(60)
+        time.sleep(6000)
 
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
