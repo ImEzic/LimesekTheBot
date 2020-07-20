@@ -12,6 +12,7 @@ client.remove_command('help')
 #*bot status
 @client.event
 async def on_ready():
+    
     #*Bot Info
     print('Logged in as')
     print(f'Bot-Name: {client.user.name}')
@@ -21,6 +22,8 @@ async def on_ready():
     client.AppInfo = await client.application_info()
     print(f'Owner: {client.AppInfo.owner}')
     print('------')
+    
+    
     #*Loading cogs
     try:
         for filename in os.listdir('./cogs'):
@@ -28,6 +31,8 @@ async def on_ready():
                 client.load_extension(f'cogs.{filename[:-3]}')
     except Exception:
             print(f'Couldn\'t load cog {filename}')
+    
+    
     #*TopGG Server count
     headers = {  
     "content-type": "application/json",
@@ -40,10 +45,8 @@ async def on_ready():
         print("Successfully posted '" + str(payload) + "' to TopGG.")
     else:
         print("Failed to post guild count to TopGG, response code {}".format(req.status_code)
-
-
-
-
+    
+    #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
 
 
