@@ -14,7 +14,7 @@ class TopGG(commands.Cog):
         headers = {  
         "content-type": "application/json",
         "authorization": os.environ.get("TOPGG_TOKEN"),
-        "user-agent": "Elon Musk/1.1 Python/3.8 requests/2.23.0"
+        "user-agent": "ElonMusk/1.1 Python/3.8 requests/2.23.0"
         }
 
         payload = {"server_count": len(self.client.guilds)} # The amount you want to post (dont falsify this)
