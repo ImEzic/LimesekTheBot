@@ -40,7 +40,7 @@ async def on_ready():
     "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
     }
     payload = {"server_count": len(client.guilds)} # The amount you want to post (dont falsify this)
-    req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=self.headers)
+    req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=headers)
     if 199 < req.status_code < 300:
         print("Successfully posted '" + str(payload) + "' to TopGG.")
     else:
