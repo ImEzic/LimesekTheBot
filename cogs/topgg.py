@@ -8,7 +8,7 @@ class TopGG(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        print("topgggggggg")
+        
     
     
         headers = {  
@@ -16,7 +16,7 @@ class TopGG(commands.Cog):
         "authorization": os.environ.get("TOPGG_TOKEN"),
         "user-agent": "ElonMusk/1.1 Python/3.8 requests/2.23.0"
         }
-
+        print("topgggggggg")
         payload = {"server_count": len(self.client.guilds)} # The amount you want to post (dont falsify this)
         req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=self.headers)
         print(req)
