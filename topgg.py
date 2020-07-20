@@ -8,7 +8,9 @@ class TopGG(commands.Cog):
 
     def __init__(self, client):
         self.client = client
-        
+        print("topgggggggg")
+    
+    
 
     # The headers, this doesn't need to be set every time you push the data, only once. 
     #
