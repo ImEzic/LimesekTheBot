@@ -35,20 +35,22 @@ async def on_ready():
     
     
     #*TopGG Server count
-    headers = {  
-    "content-type": "application/json",
-    "authorization": os.environ.get("TOPGG_TOKEN"),
-    "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
-    }
-    hell_is_frozen=True
-    while hell_is_frozen:
+    @client.command()
+    @client.is_owner()
+    async def topgg(ctx):
+        headers = {  
+        "content-type": "application/json",
+        "authorization": os.environ.get("TOPGG_TOKEN"),
+        "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
+        }
+    
         payload = {"server_count": len(client.guilds)} # The amount you want to post (dont falsify this)
         req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=headers)
         if 199 < req.status_code < 300:
             print("Successfully posted '" + str(payload) + "' to TopGG.")
         else:
             print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
-        hell_is_frozen=False
+        ctx.send(payload)
 
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
@@ -59,13 +61,6 @@ async def on_guild_join(guild):
     firstChannel = guild.text_channels[0]
     await firstChannel.send("Hi there, I'm Elon! Thanks for inviting me here. Type `elon help` or `bro help` to get a list of commands or just mention me in chat."
                             " If you need help, or find a bug: Join our support server at https://discord.gg/PYU6uhB")
-
-
-
-# The headers, this doesn't need to be set every time you push the data, only once. 
-#
-# Do be sure to change BOT_NAME in 'user-agent' and put your token in 'DBL_TOKEN_HERE', if this is an
-# open source project I would reccommend putting this in a seperate json file, and getting it from there.
 
 
 client.run(os.environ.get("BOT_TOKEN"))
