@@ -33,27 +33,29 @@ async def on_ready():
     except Exception:
             print(f'Couldn\'t load cog {filename}')
     
-    
-    #*TopGG Server count
-    @client.command()
-    @client.is_owner()
-    async def topgg(ctx):
-        headers = {  
-        "content-type": "application/json",
-        "authorization": os.environ.get("TOPGG_TOKEN"),
-        "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
-        }
-    
-        payload = {"server_count": len(client.guilds)} # The amount you want to post (dont falsify this)
-        req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=headers)
-        if 199 < req.status_code < 300:
-            print("Successfully posted '" + str(payload) + "' to TopGG.")
-        else:
-            print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
-        ctx.send(payload)
-
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
+    
+    
+#*TopGG Server count
+@client.command()
+@client.is_owner()
+async def topgg(ctx):
+    headers = {  
+    "content-type": "application/json",
+    "authorization": os.environ.get("TOPGG_TOKEN"),
+    "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
+    }
+
+    payload = {"server_count": len(client.guilds)} # The amount you want to post (dont falsify this)
+    req = requests.post("https://top.gg/api/bots/688397092707631125/stats", json=payload, headers=headers)
+    if 199 < req.status_code < 300:
+        print("Successfully posted '" + str(payload) + "' to TopGG.")
+    else:
+        print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
+    ctx.send(payload)
+
+    
 
 
 @client.event
