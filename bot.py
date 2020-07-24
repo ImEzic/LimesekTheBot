@@ -38,8 +38,8 @@ async def on_ready():
     
     
 #*TopGG Server count
-@client.command()
-@client.is_owner()
+@commands.command()
+@commands.is_owner()
 async def topgg(ctx):
     headers = {  
     "content-type": "application/json",
@@ -54,8 +54,6 @@ async def topgg(ctx):
     else:
         print("Failed to post guild count to TopGG, response code {}".format(req.status_code))
     ctx.send(payload)
-
-    
 
 
 @client.event
