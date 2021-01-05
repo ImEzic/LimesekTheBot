@@ -48,7 +48,7 @@ async def topgg(ctx):
     }
     while True:
         payload = {"server_count": len(client.guilds)}
-        req = requests.post("https://top.gg/api/bots/{}/stats".format(str(client.user.id)), json=payload, headers=headers)
+        req = requests.post("https://top.gg/api/bots/688397092707631125/stats".format(str(client.user.id)), json=payload, headers=headers)
         if 199 < req.status_code < 300:
             print("Successfully posted '" + str(payload) + "' to TopGG.")
         else:
