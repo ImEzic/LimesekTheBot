@@ -1,3 +1,4 @@
+from logging import exception
 import discord
 import os
 from discord.ext import commands
@@ -30,8 +31,8 @@ async def on_ready():
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py'):
                 client.load_extension(f'cogs.{filename[:-3]}')
-    except Exception:
-            print(f'Couldn\'t load cog {filename}')
+    except Exception as e:
+        print(e)
     
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
