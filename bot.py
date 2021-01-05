@@ -2,8 +2,7 @@ from logging import exception
 import discord
 import os
 from discord.ext import commands
-import requests
-import time
+
 
 __version__ = '1.0.0'
 
