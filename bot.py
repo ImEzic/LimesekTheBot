@@ -44,7 +44,7 @@ async def topgg(ctx):
     headers = {  
     "content-type": "application/json",
     "authorization": os.environ.get("TOPGG_TOKEN"),
-    "user-agent": "Discord-Bot-That-Does-Stuff/1.1 Python/3.8 requests/2.23.0"
+    "user-agent": "Discord-Bot-That-Does-Stuff/1.0.0 Python/3.8.2 requests/2.23.0"
     }
 
     payload = {"server_count": len(client.guilds)} # The amount you want to post (dont falsify this)
