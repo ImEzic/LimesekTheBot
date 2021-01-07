@@ -20,12 +20,17 @@ class Fun(commands.Cog):
     async def say(self, ctx, *,text):
         await ctx.send(f"{text} \n\u200b{(len(text) + 5)*' '}-{ctx.message.author}")
     
+    @say.error
+    async def say_error(self, ctx, error):
+        await ctx.send("`say [message]`")
+    
     
     #*on_message commands
     @commands.Cog.listener()
     async def on_message(self, message):
         if isinstance(message.channel, discord.DMChannel):
-            await message.author.send(':x: Sorry, but I don\'t accept commands through direct messages! Please use the `#bots` channel of your corresponding server!')
+            # await message.author.send(f'pfff "{message.content}"')
+            # await message.author.send("Yeah add me to the server just to talk to me in pm. Bruhh. Do you even think? You aren't even my type tbf. Let's just talk on the server")
             return
 
         if message.author == self.client.user:
@@ -37,7 +42,7 @@ class Fun(commands.Cog):
         if '@!688397092707631125' in message.content.lower():
             await message.channel.send('Type `elon help` or `bro help` to see the list of commands brother')
         
-        if message.content.lower().replace('?', '') in ['how are you', 'what\'s up']:
+        if message.content.lower().replace('?', '') in ['how are you', 'what\'s up', 'whats up']:
             wittyResponse = ['My lawyer says I don’t have to answer that question.',
                              'I could really go for a massage.',
                              'I\'d say I\'m a [insert number here] out of 10.',
@@ -49,7 +54,7 @@ class Fun(commands.Cog):
 
     #*8ball
     @commands.command(name="8ball")
-    async def _8ball(self, ctx, message):
+    async def _8ball(self, ctx , *,message):
         magicResponse = ['It is certain.',
                 'It is decidedly so.',
                 'Without a doubt.',
@@ -70,19 +75,116 @@ class Fun(commands.Cog):
                 'My sources say no.',
                 'Outlook not so good.',
                 'Very doubtful.']
-        await ctx.send(random.choice(magicResponse))
+        if "?" not in message:
+            await ctx.send("What are you allergic to question marks???")
+            await ctx.send("`8ball [your question and question mark at the end dummy]`")
+        if len(message) < 2:
+            await ctx.send("I'm going to pretend I didn't see that")
+        else:
+            await ctx.send(random.choice(magicResponse))
+
+    @_8ball.error
+    async def _8ball_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Yeah, alright that's far from correct")
+            await ctx.send("`8ball [your question]`")
+
 
     #*Let me google that for you
     @commands.command()
     async def google(self, ctx, *,search):
-
         await ctx.send(f"https://lmgtfy.com/?q={search.replace(' ','+')}")
+    
+    @google.error
+    async def google_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Yes excepct output with no input ")
+            await ctx.send("`google [something to google perhaps???]`")
+
     
 
     #*The Usless Web
     @commands.command()
     async def useless(self, ctx):
-        await ctx.send("https://theuselessweb.com/")
+        usless=["http://heeeeeeeey.com/",
+		        "http://corndog.io/",
+                "https://alwaysjudgeabookbyitscover.com",
+                "http://thatsthefinger.com/",
+                "http://cant-not-tweet-this.com/",
+                "http://weirdorconfusing.com/",
+                "http://eelslap.com/",
+                "http://www.staggeringbeauty.com/",
+                "http://burymewithmymoney.com/",
+                "https://smashthewalls.com/",
+                "https://jacksonpollock.org/",
+                "http://endless.horse/",
+                "http://www.trypap.com/",
+                "http://www.republiquedesmangues.fr/",
+                "http://www.movenowthinklater.com/",
+                "http://www.partridgegetslucky.com/",
+                "http://www.rrrgggbbb.com/",
+                "http://beesbeesbees.com/",
+                "http://www.koalastothemax.com/",
+                "http://www.everydayim.com/",
+                "http://randomcolour.com/",
+                "http://cat-bounce.com/",
+                "http://chrismckenzie.com/",
+                "https://thezen.zone/",
+                "http://hasthelargehadroncolliderdestroyedtheworldyet.com/",
+                "http://ninjaflex.com/",
+                "http://ihasabucket.com/",
+                "http://corndogoncorndog.com/",
+                "http://www.hackertyper.com/",
+                "https://pointerpointer.com",
+                "http://imaninja.com/",
+                "http://drawing.garden/",
+                "http://www.ismycomputeron.com/",
+                "http://www.nullingthevoid.com/",
+                "http://www.muchbetterthanthis.com/",
+                "http://www.yesnoif.com/",
+                "http://lacquerlacquer.com",
+                "http://potatoortomato.com/",
+                "http://iamawesome.com/",
+                "https://strobe.cool/",
+                "http://www.pleaselike.com/",
+                "http://crouton.net/",
+                "http://corgiorgy.com/",
+                "http://www.wutdafuk.com/",
+                "http://unicodesnowmanforyou.com/",
+                "http://chillestmonkey.com/",
+                "http://scroll-o-meter.club/",
+                "http://www.crossdivisions.com/",
+                "http://tencents.info/",
+                "http://www.patience-is-a-virtue.org/",
+                "http://pixelsfighting.com/",
+                "http://isitwhite.com/",
+                "https://existentialcrisis.com/",
+                "http://onemillionlols.com/",
+                "http://www.omfgdogs.com/",
+                "http://oct82.com/",
+                "http://chihuahuaspin.com/",
+                "http://www.blankwindows.com/",
+                "http://dogs.are.the.most.moe/",
+                "http://tunnelsnakes.com/",
+                "http://www.trashloop.com/",
+                "http://www.ascii-middle-finger.com/",
+                "http://spaceis.cool/",
+                "http://www.donothingfor2minutes.com/",
+                "http://buildshruggie.com/",
+                "http://buzzybuzz.biz/",
+                "http://yeahlemons.com/",
+                "http://wowenwilsonquiz.com",
+                "https://thepigeon.org/",
+                "http://notdayoftheweek.com/",
+                "http://www.amialright.com/",
+                "http://nooooooooooooooo.com/",
+                "https://greatbignothing.com/",
+                "https://zoomquilt.org/",
+                "https://dadlaughbutton.com/",
+                "https://www.bouncingdvdlogo.com/",
+                "https://remoji.com/",
+                "http://papertoilet.com/"]
+        await ctx.send(random.choice(usless))
         
 
     #*Gives size of member's little guy
@@ -90,8 +192,13 @@ class Fun(commands.Cog):
     async def size(self, ctx, member: discord.Member = None):
         member = ctx.author if member == None else member
         await ctx.send(f'{member.mention}\'s friend is this size: 8{random.randint(3,15)*"="}D')
-
-
+    
+    @size.error
+    async def size_error(self, ctx, error):
+        if isinstance(error, commands.errors.MemberNotFound):
+            await ctx.send("Okay... *shakes his head*... Please tell me what that is, because that's not a person for sure")
+            await ctx.send("*Sighs*.. just type that`size [@bigman]`")
+    
     #*roasts
     @commands.command()
     async def roast(self, ctx, member: discord.Member):
@@ -130,12 +237,18 @@ class Fun(commands.Cog):
         "Whenever we hang out, I remember that God really does have a sense of humor.",
         "It’s kind of hilarious watching you try to fit your entire vocabulary into one sentence.",
         "Please just tell me you don’t plan to home-school your kids.",
-        "You always bring me so much joy—as soon as you leave the room.",
+        "You always bring me so much joy as soon as you leave the room.",
         "I was hoping for a battle of wits but it would be wrong to attack someone who’s totally unarmed.",
         "I’d tell you how I really feel, but I wasn’t born with enough middle fingers to express myself in this case.",
         "Stupidity’s not a crime, so feel free to go.",
         "I’d tell you to go fuck yourself, but that would be cruel and unusual punishment."]
         await ctx.send(random.choice(roasts))
+
+    @roast.error
+    async def roasts_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Who? Is the questions! WHO?")
+            await ctx.send("`roast [@theguywhoreallypissesyouoff]`")
 
 
 def setup(client):

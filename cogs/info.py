@@ -19,24 +19,23 @@ class Info(commands.Cog):
         embed.add_field(name="Invite", value="[Invite link](https://discordapp.com/api/oauth2/authorize?client_id=688397092707631125&permissions=8&scope=bot)")
         await ctx.send(embed=embed)
 
+
     #*Server list the bot is in
     @commands.command(hidden=True, aliases=['guilds'])
     @commands.is_owner()
     async def servers(self, ctx):
-        msg = '```js\n'
-        msg += '{!s:19s} | {!s:10s} | {!s:25s} | {}\n'.format('ID', 'Member', 'Name', 'Owner')
-        for guild in self.client.guilds:
-            msg += '{!s:19s} | {!s:11s}| {!s:25s} | {}\n'.format(guild.id, guild.member_count, guild.name, guild.owner)
-        msg += '```'
         await ctx.send(f'Elon is in **{len(self.client.guilds)}** servers')
-        await ctx.send(msg)
-
 
 
     #*pings bot 
     @commands.command()
     async def ping(self, ctx):
         await ctx.send(f'🏓 Pong! `{round(self.client.latency * 1000)}ms`')
+
+
+    @commands.command()
+    async def upvote(self, ctx):
+        await ctx.send("Not that i dare you to but you won't upvote me https://top.gg/bot/688397092707631125/vote")
 
 
     #*investigate user
@@ -66,13 +65,26 @@ class Info(commands.Cog):
         await ctx.send(embed=embed)
 
 
+    @investigate.error
+    async def investigate_error(self, ctx, error):
+        if isinstance(error, commands.errors.MemberNotFound):
+            await ctx.send("Okay... *shakes his head*... Please tell me what that is, because that's not a person for sure")
+            await ctx.send("*Sighs*.. just type `investigate [@someguyyouwanttostalk or just leave it blank and see what happens]`")
+
+
+    @commands.command()
+    async def bug(self, ctx):
+        embed=discord.Embed(description="Ay that's not good bugs got to get killed. You can join a support server [here](https://discord.gg/PYU6uhB) and report it. It would be much appreciated",color=0xffc200)
+        await ctx.send(embed=embed)
+    
+    
     #*Help command
     @commands.command()
     async def help(self, ctx):
         
-        embed = discord.Embed(title ='**Elon Musk** is happy to help You *wink*', colour = discord.Color(0xffc200))
+        embed = discord.Embed(title ='Alright I see you want some help no shame in that', colour = discord.Color(0xffc200))
         
-        embed.add_field(name='Info', value='`who`, `ping`, `investigate`, `help`', inline=False)
+        embed.add_field(name='Info', value='`who`, `ping`, `investigate`, `help`, `upvote`', inline=False)
         embed.add_field(name='Fun', value='`coinflip`, `say`, `google`, `useless`, `size`, `roast`, `8ball`', inline=False)
         embed.add_field(name='Moderation', value='`clear`, `kick`, `unban`, `ban`', inline=False)
 

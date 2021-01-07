@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 
-
 class Errors(commands.Cog):
 
     def __init__(self, client):
@@ -10,20 +9,25 @@ class Errors(commands.Cog):
     #*Error if user doesn't have a rank to use specific command
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
-        #dont have a role to run commnd
+        
         if isinstance(error, commands.MissingRole):
             await ctx.send(f"{ctx.author.mention} You don\'t have permmision to do that silllly")
         
         elif isinstance(error, commands.CommandNotFound):
-           pass
+           await ctx.send("You clearly have not a single clue what are you doing here, don't you? Just type `bro help` and stop the spam")
         
         elif isinstance(error, commands.MissingRequiredArgument):
             pass
         
         elif isinstance(error, commands.BadArgument):
             pass
+        
+        elif isinstance(error, commands.errors.MemberNotFound):
+            pass
+        
         elif isinstance(error, commands.NotOwner):
             await ctx.message.delete()
+            await ctx.send("Ey this is for my father only")
         else:
             print(ctx.guild.name)
             raise error
