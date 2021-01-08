@@ -84,7 +84,7 @@ class Info(commands.Cog):
         
         embed = discord.Embed(title ='Alright I see you want some help no shame in that', colour = discord.Color(0xffc200))
         
-        embed.add_field(name='Info', value='`who`, `ping`, `investigate`, `help`, `upvote`', inline=False)
+        embed.add_field(name='Info', value='`who`, `ping`, `investigate`, `help`, `upvote`, `bug`', inline=False)
         embed.add_field(name='Fun', value='`coinflip`, `say`, `google`, `useless`, `size`, `roast`, `8ball`', inline=False)
         embed.add_field(name='Moderation', value='`clear`, `kick`, `unban`, `ban`', inline=False)
 
