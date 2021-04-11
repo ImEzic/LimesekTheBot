@@ -1,6 +1,7 @@
+python>=3.8.0
 git+https://github.com/Rapptz/discord.py
 dblpy>=0.4.0
 python3-dev
-python>=3.8.0
+
 
 
