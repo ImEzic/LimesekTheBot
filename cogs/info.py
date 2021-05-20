@@ -74,7 +74,7 @@ class Info(commands.Cog):
 
     @commands.command()
     async def bug(self, ctx):
-        embed=discord.Embed(description="Ay that's not good bugs got to get killed. You can join a support server [here](https://discord.gg/PYU6uhB) and report it. It would be much appreciated",color=0xffc200)
+        embed=discord.Embed(description="Ay that's not good bugs need to be killed. You can join a support server [here](https://discord.gg/PYU6uhB) and report it. It will be much appreciated",color=0xffc200)
         await ctx.send(embed=embed)
     
     
