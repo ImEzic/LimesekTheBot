@@ -9,6 +9,7 @@ client = commands.Bot(command_prefix = commands.when_mentioned_or('elon ', 'bro 
 client.remove_command('help')
 
 
+
 #*bot status
 @client.event
 async def on_ready():
