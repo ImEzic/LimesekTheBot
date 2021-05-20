@@ -2,3 +2,9 @@ python>=3.8.0
 git+https://github.com/Rapptz/discord.py
 dblpy>=0.4.0
 python3-dev
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 12fc32e1eb90cef3f8c56ff9d080f49a23c0a06a
