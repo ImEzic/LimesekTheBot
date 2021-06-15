@@ -20,7 +20,7 @@ class Movienight(commands.Cog):
         titles = [sub.replace('"', '') for sub in b]
         
         for c in range(0,len(titles)):
-            embed.add_field(name=f"{numbers[c]} {titles[c]}", value=f"{(len(max(titles, key=len))-2)*'='}", inline=True)
+            embed.add_field(name=f"{numbers[c]} {titles[c]}", value=f"{(len(max(titles, key=len))+2)*'='}", inline=True)
         message = await ctx.send(embed=embed)
         for c in range(0,len(titles)):
             await message.add_reaction(numbers[c])
