@@ -14,7 +14,7 @@ class Errors(commands.Cog):
             await ctx.send(f"{ctx.author.mention} You don\'t have permmision to do that silllly")
         
         elif isinstance(error, commands.CommandNotFound):
-           await ctx.send("You clearly have not got a single clue what are you doing here, don't you? Just type `bro help` and stop the spam")
+           await ctx.send("You clearly have not got a single clue what are you doing here, don't you? Just type `lm help` and stop the spam")
         
         elif isinstance(error, commands.MissingRequiredArgument):
             pass

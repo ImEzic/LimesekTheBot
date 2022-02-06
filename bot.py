@@ -2,10 +2,11 @@ from logging import exception
 import discord
 import os
 from discord.ext import commands
+from discord.utils import get
 
-__version__ = '2.0.0'
+__version__ = '3.1.0'
 
-client = commands.Bot(command_prefix = commands.when_mentioned_or('elon ', 'bro ', 'Elon ', 'Bro '))
+client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'lm '))
 client.remove_command('help')
 
 
@@ -34,14 +35,8 @@ async def on_ready():
         print(f"Couldn't load cog {filename[:-3]}: {e}")
     
     #* Bot Status
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('Making Pancakes'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game('Bobrowski do domu'))
     
-
-@client.event
-async def on_guild_join(guild):
-    firstChannel = guild.text_channels[0]
-    await firstChannel.send("Hi there, I'm Elon! Thanks for inviting me here. Type `elon help` or `bro help` to get a list of commands or just mention me in chat."
-                            " If you need help or find a bug: Join our support server at https://discord.gg/PYU6uhB")
 
 
 client.run(os.environ.get("BOT_TOKEN"))

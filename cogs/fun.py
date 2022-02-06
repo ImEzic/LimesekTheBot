@@ -36,19 +36,19 @@ class Fun(commands.Cog):
         if message.author == self.client.user:
             return
 
-        if "caban" in message.content.lower():
-            await message.channel.send('Caban?! Omg jesus not her againnn')
+        if "piwo" in message.content.lower():
+            await message.channel.send('Po co komu piwo jak jest wódka')
 
-        if '@!688397092707631125' in message.content.lower():
-            await message.channel.send('Type `elon help` or `bro help` to see the list of commands brother')
+        if '@!939227760075886652' in message.content.lower():
+            await message.channel.send('Kto mnie wołał??')
         
-        if message.content.lower().replace('?', '') in ['how are you', 'what\'s up', 'whats up']:
-            wittyResponse = ['My lawyer says I don’t have to answer that question.',
-                             'I could really go for a massage.',
-                             'I\'d say I\'m a [insert number here] out of 10.',
-                             'If I were any better, I\'d be illegal.',
-                             'I dunno. Is it Friday yet?',
-                             'I\'m just how I like my steak Medium well.']
+        if message.content.lower().replace('?', '') in ['Co tam','co tam','Jak się masz','jak sie masz','jak tam']:
+            wittyResponse = ['Mój prawnik powiedział, że nie muszę odpowiadać na to pytanie.',
+                             'Co ja bym dał teraz za masaż.',
+                             'Powiedział bym, że jestem sex bombą, ale tego nie zrobie',
+                             'Jestem tak gorący, że pękają przy mnie termometry',
+                             'Czy jest już piątek?',
+                             'Nie jest tak źle, ale dobrze też nie jest.']
             await message.channel.send(random.choice(wittyResponse))
         
 
@@ -98,7 +98,7 @@ class Fun(commands.Cog):
     @google.error
     async def google_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Yes excepct output with no input ")
+            await ctx.send("Yes expect output with no input ")
             await ctx.send("`google [something to google perhaps???]`")
 
     

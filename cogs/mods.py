@@ -64,7 +64,6 @@ class Mods(commands.Cog):
             await member.ban(reason=Reason)
             await ctx.send(f'{member.mention} got banned from the server for: {Reason}')
 
-
     #*unban user
     @commands.command()
     @commands.guild_only()
