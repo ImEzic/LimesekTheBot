@@ -1,2 +1,2 @@
-# Discord-Bot-That-Does-Stuff
-My first repo first fully finished project and first discord bot. Lots of #1
+# Limesek_Just_For_The_Sake_Of_It
+Bla Bla Bla Bla Bla
