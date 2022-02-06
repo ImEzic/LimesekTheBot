@@ -6,7 +6,7 @@ from discord.utils import get
 
 __version__ = '3.1.0'
 
-client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'lm '))
+client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '))
 client.remove_command('help')
 
 
