@@ -40,6 +40,7 @@ class Info(commands.Cog):
         await ctx.send(embed=embed)
 
 
+
     @investigate.error
     async def investigate_error(self, ctx, error):
         if isinstance(error, commands.errors.MemberNotFound):

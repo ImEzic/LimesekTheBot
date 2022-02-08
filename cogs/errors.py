@@ -17,13 +17,13 @@ class Errors(commands.Cog):
            await ctx.send("You clearly have not got a single clue what are you doing here, don't you? Just type `lm help` and stop the spam")
         
         elif isinstance(error, commands.MissingRequiredArgument):
-            pass
+            raise error
         
         elif isinstance(error, commands.BadArgument):
-            pass
+            raise error
         
         elif isinstance(error, commands.errors.MemberNotFound):
-            pass
+            raise error
         
         elif isinstance(error, commands.NotOwner):
             await ctx.message.delete()
