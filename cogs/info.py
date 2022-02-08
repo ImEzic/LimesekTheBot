@@ -23,8 +23,8 @@ class Info(commands.Cog):
         embed = discord.Embed(colour = member.color, timestamp = ctx.message.created_at)
 
         embed.set_author(name = f'User record:   {member}')
-        embed.set_thumbnail(url = member.avatar_url)
-        embed.set_footer(text=f'Requested by {ctx.author}', icon_url=ctx.author.avatar_url)
+        embed.set_thumbnail(url = member.avatar.url)
+        embed.set_footer(text=f'Requested by {ctx.author}', icon_url=ctx.author.avatar.url)
 
         embed.add_field(name='ID:', value=member.id)
         embed.add_field(name='Name:', value=member.display_name, inline=False)
