@@ -251,5 +251,5 @@ class Fun(commands.Cog):
             await ctx.send("`roast [@theguywhoreallypissesyouoff]`")
 
 
-def setup(client):
+async def setup(client):
     await client.add_cog(Fun(client))
