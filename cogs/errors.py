@@ -33,4 +33,4 @@ class Errors(commands.Cog):
             raise error
 
 def setup(client):
-    client.add_cog(Errors(client))
+    await client.add_cog(Errors(client))
