@@ -33,6 +33,6 @@ class Movienight(commands.Cog):
             await ctx.send(f'Maximum amount of arguments is 10 `you have: {len(titles)}`')    
         
 def setup(client):
-    client.add_cog(Movienight(client))
+    await client.add_cog(Movienight(client))
 
         
