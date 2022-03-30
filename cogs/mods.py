@@ -86,5 +86,5 @@ class Mods(commands.Cog):
         except:
             await ctx.send('Oh I see what\'s wrong. Try `unban username#discriminator`')
 
-def setup(client):
+async def setup(client):
     await client.add_cog(Mods(client))
