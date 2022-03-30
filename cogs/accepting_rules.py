@@ -54,6 +54,6 @@ class acceptingRules(commands.Cog):
             
         
 def setup(client):
-    client.add_cog(acceptingRules(client))
+    await client.add_cog(acceptingRules(client))
 
         
