@@ -39,4 +39,4 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Bobrowski do domu'))
 
 
-client.run(os.environ.get("BOT_TOKEN")
+client.run(os.environ.get("BOT_TOKEN"))
