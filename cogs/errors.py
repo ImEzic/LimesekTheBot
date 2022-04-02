@@ -32,5 +32,5 @@ class Errors(commands.Cog):
             print(ctx.guild.name)
             raise error
 
-defsetup( client):
+def setup( client):
     client.add_cog(Errors(client))
