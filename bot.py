@@ -9,7 +9,8 @@ __version__ = '3.1.0'
 intents = discord.Intents.default()
 intents.message_content = True
 
-client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
+client = commands.Bot(command_prefix = "lim",intents=intents)
+#client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
 client.remove_command('help')
 
 
