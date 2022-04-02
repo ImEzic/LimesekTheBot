@@ -25,14 +25,13 @@ async def on_ready():
     print(f'Owner: {client.AppInfo.owner}')
     print('------')
     
-    
-    #*Loading cogs
-    try:
-        for filename in os.listdir('./cogs'):
-            if filename.endswith('.py'):
-                client.load_extension(f'cogs.{filename[:-3]}')
-    except Exception as e:
-        print(f"Couldn't load cog {filename[:-3]}: {e}")
+    async def load_extensions():
+        try:
+            for filename in os.listdir('./cogs'):
+                if filename.endswith('.py'):
+                    client.load_extension(f'cogs.{filename[:-3]}')
+        except Exception as e:
+            print(f"Couldn't load cog {filename[:-3]}: {e}")
     
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Bobrowski do domu'))
