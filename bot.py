@@ -6,7 +6,10 @@ from discord.utils import get
 
 __version__ = '3.1.0'
 
-client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '))
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
 client.remove_command('help')
 
 
