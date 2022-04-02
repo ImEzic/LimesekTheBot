@@ -32,5 +32,5 @@ class Errors(commands.Cog):
             print(ctx.guild.name)
             raise error
 
-async def setup(client):
-    await client.add_cog(Errors(client))
+defsetup( client):
+    client.add_cog(Errors(client))
