@@ -63,4 +63,4 @@ class Info(commands.Cog):
 
 
 async def setup(client):
-    await client.add_cog(Info(client))
+    client.add_cog(Info(client))
