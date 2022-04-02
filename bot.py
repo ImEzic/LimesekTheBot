@@ -43,4 +43,4 @@ async def main():
         await load_extensions()
         await client.start(os.environ.get("BOT_TOKEN"))
 
-asyncio.run(main())
+client.run(main())
