@@ -9,11 +9,9 @@ __version__ = '3.1.0'
 intents = discord.Intents.default()
 intents.message_content = True
 
-client = commands.Bot(command_prefix = "lim",intents=intents)
-#client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
+
+client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
 client.remove_command('help')
-
-
 
 #*bot status
 @client.event
@@ -40,6 +38,9 @@ async def on_ready():
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Bobrowski do domu'))
     
+async def main():
+    async with client:
+        await load_extensions()
+        await client.start(os.environ.get("BOT_TOKEN"))
 
-
-client.run(os.environ.get("BOT_TOKEN"))
+asyncio.run(main())
