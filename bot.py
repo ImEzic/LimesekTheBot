@@ -3,11 +3,11 @@ import discord
 import os
 from discord.ext import commands
 from discord.utils import get
+import asyncio 
 
-__version__ = '3.1.0'
+__version__ = '4.0.0'
 
-intents = discord.Intents.default()
-intents.message_content = True
+intents = discord.Intents().all()
 
 
 client = commands.Bot(command_prefix = commands.when_mentioned_or('lim ', 'lm ', 'Lim ', 'Lm '), intents=intents)
@@ -27,20 +27,22 @@ async def on_ready():
     print(f'Owner: {client.AppInfo.owner}')
     print('------')
 
-    async def load_extensions():
-        for filename in os.listdir('./cogs'):
-            if filename.endswith('.py'):
-                await client.load_extension(f'cogs.{filename[:-3]}')   
-#     async def load_extensions():
-#         try:
-#             for filename in os.listdir('./cogs'):
-#                 if filename.endswith('.py'):
-#                     await client.load_extension(f'cogs.{filename[:-3]}')
-#         except Exception as e:
-#             print(f"Couldn't load cog {filename[:-3]}: {e}")
-    
+
     #* Bot Status
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Bobrowski do domu'))
 
+async def load_extensions():
+    try:
+        for filename in os.listdir('./cogs'):
+            if filename.endswith('.py'):
+                await client.load_extension(f"cogs.{filename[:-3]}")
+    except Exception as e:
+        print(f"Couldn't load cog {filename[:-3]}: {e}")
+            
 
-client.run(os.environ.get("BOT_TOKEN"))
+async def main():
+    async with client:
+        await load_extensions()
+        await client.start(os.environ.get("BOT_TOKEN"))
+
+asyncio.run(main())
